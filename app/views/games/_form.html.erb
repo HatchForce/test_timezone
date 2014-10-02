@@ -1,0 +1,16 @@
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :time_zone %>
+  <%= f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, default: "Chennai") %>
+</div>
+<div>
+  <%= f.label :scheduled_at %>
+  <%= f.text_field :scheduled_at, value: @game_scheduled_at %>
+</div>
+<div>
+  <%= f.submit @game.new_record? ? "Add" : "Update" %>
+  <%= link_to "Back", games_path %>
+</div>

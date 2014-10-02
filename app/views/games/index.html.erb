@@ -1,0 +1,32 @@
+<h1>List of Games</h1>
+<%= link_to "Add Game", new_game_path %>
+<hr>
+
+<table border="1">
+  <tr>
+    <td>#Id</td>
+    <td>Name</td>
+    <td>TimeZone</td>
+    <td>Scheduled_at</td>
+    <td>Options</td>
+  </tr>
+  <% @games.each do |game| %>
+  <tr>
+    <td><%= game.id %></td>
+    <td><%= game.name %></td>
+    <td><%= game.time_zone %></td>
+    <td>
+      <%= game.scheduled_at %>
+      <br>
+      <span style="color: firebrick">
+        <%= game.scheduled_at_with_game_time_zone %>
+      </span>
+      <br>
+      <span style="color: chocolate">
+        <%= game.scheduled_at_with_user_time_zone(current_time_zone) %>
+      </span>
+    </td>
+    <td><%= link_to "Edit", edit_game_path(game.id) %></td>
+  </tr>
+  <% end %>
+</table>

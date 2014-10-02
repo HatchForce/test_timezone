@@ -1,0 +1,29 @@
+<h1><%= "Game Name ## #{@game.name}"%></h1>
+<br>
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td><%= @game.name %></td>
+  </tr>
+  <tr>
+    <td>TimeZone</td>
+    <td><%= @game.time_zone %></td>
+  </tr>
+  <tr>
+    <td>Scheduled_at db/utc</td>
+    <td><%= @game.scheduled_at %></td>
+  </tr>
+  <tr>
+    <td>Scheduled_at as game time zone</td>
+    <td><%= @game.scheduled_at_with_game_time_zone %></td>
+  </tr>
+  <tr>
+    <td>Scheduled_at as user time zone</td>
+    <td><%= @game.scheduled_at_with_user_time_zone(current_time_zone) %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= link_to "Games", games_path %></td>
+  </tr>
+</table>
